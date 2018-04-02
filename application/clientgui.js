@@ -570,8 +570,9 @@ wdi.ClientGui = $.spcExtend(wdi.EventObject.prototype, {
 
 	handleKey: function(e) {
 		e.data[0].generateEvent.call(e.data[0], e.type, [e]);
-
+		console.log("Handle : " + e.type);
 		if (wdi.Keymap.isInKeymap(e.keyCode) && e.type !== "keypress") {
+			console.log("Default Prevented");
 			e.preventDefault();
 		}
 		//e.data[0].stuckKeysHandler.handleStuckKeys(e);
