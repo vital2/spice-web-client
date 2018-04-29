@@ -569,10 +569,14 @@ wdi.ClientGui = $.spcExtend(wdi.EventObject.prototype, {
 	},
 
 	handleKey: function(e) {
+		// Disable Browser developer Tools option (Shift+Ctrl+c)
+		// Which has a side effect that the same key combination cannot be
+		// used for copying on linux VM's from Browser
+		if(e.ctrlKey && e.shiftKey && (e.which == 67)) {
+                        return false;
+                }
 		e.data[0].generateEvent.call(e.data[0], e.type, [e]);
-		console.log("Handle : " + e.type);
 		if (wdi.Keymap.isInKeymap(e.keyCode) && e.type !== "keypress") {
-			console.log("Default Prevented");
 			e.preventDefault();
 		}
 		//e.data[0].stuckKeysHandler.handleStuckKeys(e);
