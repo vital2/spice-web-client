@@ -586,7 +586,6 @@ wdi.ClientGui = $.spcExtend(wdi.EventObject.prototype, {
 	},
 
 	setClipBoardData: function(data) {
-		console.log("Clip!!!");
 	        var e = window.jQuery.Event("keyup");
           	e["which"] = 67;
             	e["keyCode"] = 67;
