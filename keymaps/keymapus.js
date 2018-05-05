@@ -160,14 +160,14 @@ wdi.KeymapUS = function() {
     ctrlkeymapUS[90]                = 0x2C; // z
     ctrlkeymapUS[88]                = 0x2D; // x
     ctrlkeymapUS[67]                = 0x2E; // c
-    //ctrlkeymapUS[86]                = 0x2F; // v      to enable set disableClipboard = true in run.js
+    ctrlkeymapUS[86]                = 0x2F; // v      to enable set disableClipboard = true in run.js
     ctrlkeymapUS[66]                = 0x30; // b
     ctrlkeymapUS[78]                = 0x31; // n
     ctrlkeymapUS[77]                = 0x32; // m
 
     var reservedCtrlKeymap = [];
     reservedCtrlKeymap[86] = 0x2F; //v
-
+    reservedCtrlKeymap[67] = 0x2E; //c
 
     return {
         getKeymap: function() {

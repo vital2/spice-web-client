@@ -570,10 +570,8 @@ wdi.ClientGui = $.spcExtend(wdi.EventObject.prototype, {
 
 	handleKey: function(e) {
 		// Disable Browser developer Tools option (Shift+Ctrl+c)
-		// Which has a side effect that the same key combination cannot be
-		// used for copying on linux VM's from Browser
 		if(e.ctrlKey && e.shiftKey && (e.which == 67)) {
-                        return false;
+                        e.preventDefault();
                 }
 		e.data[0].generateEvent.call(e.data[0], e.type, [e]);
 		if (wdi.Keymap.isInKeymap(e.keyCode) && e.type !== "keypress") {
@@ -588,6 +586,13 @@ wdi.ClientGui = $.spcExtend(wdi.EventObject.prototype, {
 	},
 
 	setClipBoardData: function(data) {
+		console.log("Clip!!!");
+	        var e = window.jQuery.Event("keyup");
+          	e["which"] = 67;
+            	e["keyCode"] = 67;
+            	e["charCode"] = 0;
+            	e["generated"] = true;
+            	this.fire('input', ['keyup', [e]]);
 		//we have received new clipboard data
 		//show to the user
 		//TODO: create a new dialog with buttons to copy the data directly
